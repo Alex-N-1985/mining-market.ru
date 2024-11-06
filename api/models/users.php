@@ -4,6 +4,7 @@ include_once "database.php";
 
 class _Users {
     
+    public $ID;
     public $login;
     public $password;
     public $email;

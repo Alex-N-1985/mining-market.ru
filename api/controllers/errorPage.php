@@ -3,7 +3,7 @@
     class errorPage {
 
         public function index(){
-            return "Ошибка. Неверный запрос.";
+            return "Error. Wrong request.";
         }
 
     }
