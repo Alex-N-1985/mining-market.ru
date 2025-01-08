@@ -14,12 +14,12 @@
                 </div>
             </div>
             <div class="header__cats">
-                <p><a href="./goods.html">Крепи</a></p>
-                <p><a href="./goods.html">Конвейеры</a></p>
-                <p><a href="./goods.html">Проходческие комбайны</a></p>
-                <p><a href="./goods.html">Очистные комбайны</a></p>
-                <p><a href="./goods.html">Электрооборудование</a></p>
-                <p><a href="./goods.html">Электротранспорт</a></p>
+                <p><a href="">Крепи</a></p>
+                <p><a href="">Конвейеры</a></p>
+                <p><a href="">Проходческие комбайны</a></p>
+                <p><a href="">Очистные комбайны</a></p>
+                <p><a href="">Электрооборудование</a></p>
+                <p><a href="">Электротранспорт</a></p>
             </div>
         </header>
         <div id="openModal" class="modal-container">
@@ -35,7 +35,7 @@
                     <input type="password" placeholder="Password" id="password">
                 </div>
                 <div class="modal-dialog__datafield">
-                    <a href="./signin.html">Зарегистрироваться</a>
+                    <a href="">Зарегистрироваться</a>
                     <button>LogIn</button>
                 </div>                
             </div>
