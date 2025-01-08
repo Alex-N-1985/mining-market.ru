@@ -1,0 +1,226 @@
+body {
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2%;
+    font-family: sans-serif;
+    /* font-size: 0;     */
+}
+
+header {
+    width: 90%;
+    padding: 2.5%;
+    background-image: linear-gradient(gray, white);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.header__cats {
+    width: 100%;
+    padding: 1%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;        
+}
+
+.header__cats p a {
+    font-size: 20px;
+    font-weight: normal;
+    color: gray;
+    text-align: right;
+    text-decoration: none;
+}
+
+.headerup {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerup__logo img {
+    display: block;
+    width: 40%;
+}
+
+.searchfield {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchfield input {
+    height: 25px;
+    width: 300px;
+}
+
+.searchfield button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333333;
+    width: 30px;
+    height: 30px;
+    
+}
+
+.headerup__usericons {
+    width: 50%;
+    margin-right: 2.5%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.headerup__usericons > img {
+    margin: 0 10px;
+}
+
+.headerup__usericons > img:hover {
+    border: 3px solid #333333;
+    border-radius: 50%;
+}
+
+main {
+    width: 90%;
+    padding: 2.5%;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+main > h3 {
+    width: 100%;
+    margin: 0;
+    font-size: 40px;
+    color: #333333;
+    text-align: left;
+}
+
+footer {
+    width: 90%;
+    padding: 2.5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;    
+    background-color: azure;    
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.footer__columns h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+    text-align: left;    
+}
+
+.footer__columns p {
+    margin-top: 18px;
+}
+
+.footer__columns p a {
+    font-size: 16px;
+    font-weight: normal;
+    color: gray;
+    text-decoration: none;
+    text-align: left;        
+}
+
+.header__cats p a:hover, .footer__columns p a:hover{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    backdrop-filter: blur(2px) grayscale(70%);
+}
+
+.modal-dialog {
+    padding: 10px;
+    background-color: white;
+    width: 25%;
+    border-radius: 20px;
+    position: absolute;
+    top: 30%;
+    left: calc(30% - 50px);
+    font-family: sans-serif;
+}
+
+.uppericons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;    
+}
+
+.uppericons p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: black;
+    font-weight: normal;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+
+}
+
+.uppericons p:hover {
+    font-weight: bold;
+    border-width: 2px;
+}
+
+.modal-dialog h4 {
+    margin: 0;
+    margin-top: 20px;
+    line-height: 1;
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: #333333;
+    text-align: center;
+}
+
+.modal-dialog__datafield {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.modal-dialog__datafield {
+    width: 100%;
+}
+
+.modal-dialog__datafield a {
+    font-size: 14px;
+    color: #333333;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.modal-dialog__datafield a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.modal-dialog__datafield button {
+    width: 30%;
+}
