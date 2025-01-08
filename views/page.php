@@ -9,7 +9,7 @@
     </head>
     <body>
         <?php include_once("views/header.php"); ?>
-
+        
         <?php include_once("views/footer.php"); ?>
         <script type="text/javascript" src="/js/scripts.js"></script>
     </body>
