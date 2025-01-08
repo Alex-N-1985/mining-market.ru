@@ -6,11 +6,11 @@
                 <div class="headerup__usericons">
                     <div class="searchfield">
                         <input type="text" name="" id="searchData">
-                        <button><img src="./img/search.svg" alt=""></button>
+                        <button><img src="./img/static/search.svg" alt=""></button>
                     </div>
-                    <img src="./img/search.svg" alt="" id="quicksearchshow" onclick="quickSearchShow()">
-                    <a href="./cart.html"><img src="./img/bag.svg" alt=""></a>
-                    <img src="./img/user.svg" alt="" onclick="modalWindowOpenClose()">
+                    <img src="./img/static/search.svg" alt="" id="quicksearchshow" onclick="quickSearchShow()">
+                    <a href="./cart.html"><img src="./img/static/bag.svg" alt=""></a>
+                    <img src="./img/static/user.svg" alt="" onclick="modalWindowOpenClose()">
                 </div>
             </div>
             <div class="header__cats">
