@@ -4,9 +4,9 @@
                 <p><a href="">Статьи</a></p>
                 <p><a href="">Партнеры</a></p>
                 <p><a href="">Каталоги</a></p>                
-                <p><a href="">О нас</a></p>
-                <p><a href="">Контакты</a></p>
-                <p><a href="">Доставка и оплата</a></p>            
+                <p><a href="http://<?=$rout->domain.$rout->start?>/main/aboutus">О нас</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/main/contactus">Контакты</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/main/delivery_n_payment">Доставка и оплата</a></p>            
             </div>
             <div class="footer__columns">
                 <h3>Каталог</h3>

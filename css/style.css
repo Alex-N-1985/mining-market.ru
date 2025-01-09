@@ -224,3 +224,39 @@ footer {
 .modal-dialog__datafield button {
     width: 30%;
 }
+
+.breadcrumbs {
+    width: 100%;
+    display: block;
+    font-size: 18px;    
+}
+
+.breadcrumbs > a {
+    color: #333333;
+}
+
+.statpage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;    
+}
+
+.statpage h3 {
+    width: 100%;
+    font-size: 48px;    
+    text-align: left;
+}
+
+.statpage h3 a {
+    color: #333333;
+    text-decoration: none;
+}
+
+.statpage__content {
+    width: 100%;
+    font-size: 20px;
+    color: #333333;
+    text-align: left;
+}

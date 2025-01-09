@@ -1,7 +1,8 @@
 <?php
     include_once ("database.php");
 
-    class _statpages{
+    class _statpages {
+        
         public $ID;
         public $name;
         public $content;

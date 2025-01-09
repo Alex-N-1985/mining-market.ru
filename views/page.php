@@ -9,7 +9,15 @@
     </head>
     <body>
         <?php include_once("views/header.php"); ?>
-        
+        <main>
+        <?php
+            if (!empty($rout->dop_params)){
+                $content = $obj->$actionname($rout->dop_params);
+            } else {
+                $content = $obj->$actionname();
+            }
+        ?>
+        </main>
         <?php include_once("views/footer.php"); ?>
         <script type="text/javascript" src="/js/scripts.js"></script>
     </body>

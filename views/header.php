@@ -1,16 +1,18 @@
 <header>
             <div class="headerup">
-                <div class="headerup__logo">                
-                    <img src="./img/logo.png" alt="">
+                <div class="headerup__logo">
+                    <a href="http://<?=$rout->domain.$rout->start?>">
+                        <img src='/img/static/logo.png' alt=''>
+                    </a>
                 </div>
                 <div class="headerup__usericons">
                     <div class="searchfield">
                         <input type="text" name="" id="searchData">
-                        <button><img src="./img/static/search.svg" alt=""></button>
+                        <button><img src="/img/static/search.svg" alt=""></button>
                     </div>
-                    <img src="./img/static/search.svg" alt="" id="quicksearchshow" onclick="quickSearchShow()">
-                    <a href="./cart.html"><img src="./img/static/bag.svg" alt=""></a>
-                    <img src="./img/static/user.svg" alt="" onclick="modalWindowOpenClose()">
+                    <img src="/img/static/search.svg" alt="" id="quicksearchshow" onclick="quickSearchShow()">
+                    <a href=""><img src="/img/static/bag.svg" alt=""></a>
+                    <img src="/img/static/user.svg" alt="" onclick="modalWindowOpenClose()">
                 </div>
             </div>
             <div class="header__cats">
