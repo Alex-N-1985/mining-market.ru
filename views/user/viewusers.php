@@ -8,7 +8,7 @@
                 <table>
                     <tr><td colspan="2" class="userdata__details-avatar"><?php 
                         if ($usr->avatar == 0){
-                            echo "<img src='/img/static/image-icon.png'/>";
+                            echo "<img src='/img/static/image-icon.png' alt=''/>";                        
                         }
                         ?></td></tr>
                     <tr>
