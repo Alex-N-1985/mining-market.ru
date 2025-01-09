@@ -31,6 +31,12 @@
             $content = file_get_contents("views/main/statpages.php");
             eval("?>".$content);
         }
+
+        public function error404(){
+            global $rout;
+            $content = file_get_contents("views/main/error404.php");
+            eval("?>".$content);
+        }
     }
 
 ?>

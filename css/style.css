@@ -260,3 +260,35 @@ footer {
     color: #333333;
     text-align: left;
 }
+
+.payoutsuccess {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.payoutsuccess p {
+    width: 100%;
+    font-size: 20px;
+    color: #333333;
+    text-align: justify;
+}
+
+.payoutsuccess__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.payoutsuccess__container a {
+    display: block;
+    font-size: 20px;
+    color: red;
+    text-decoration: none;
+}
+
+.payoutsuccess__container a:hover {
+    text-decoration: underline;
+}

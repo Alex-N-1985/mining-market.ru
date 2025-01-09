@@ -1,4 +1,4 @@
-<header>
+        <header>
             <div class="headerup">
                 <div class="headerup__logo">
                     <a href="http://<?=$rout->domain.$rout->start?>">
@@ -37,7 +37,7 @@
                     <input type="password" placeholder="Password" id="password">
                 </div>
                 <div class="modal-dialog__datafield">
-                    <a href="">Зарегистрироваться</a>
+                    <a href="<?=$rout->domain.$rout->start?>/users/signin">Зарегистрироваться</a>
                     <button>LogIn</button>
                 </div>                
             </div>
