@@ -33,13 +33,13 @@
         }
 
         public function printPage(){
-            global $rout;
+            global $rout;            
             $path = "controllers/".$this->class.".php";
             include_once($path);
             $classname = $this->class;
             $actionname = $this->action;
             $obj = new $this->class();
-            include_once("views/page.php");
+            include_once("views/page.php");            
         }
     }
 ?>

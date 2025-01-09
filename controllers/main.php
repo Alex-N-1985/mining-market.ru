@@ -37,6 +37,18 @@
             $content = file_get_contents("views/main/error404.php");
             eval("?>".$content);
         }
+
+        public function userbaned(){
+            global $rout;
+            $content = file_get_contents("views/main/userbaned.php");
+            eval("?>".$content);
+        }
+
+        public function unauthaccess(){
+            global $rout;
+            $content = file_get_contents("views/main/unauthaccess.php");
+            eval("?>".$content);
+        }
     }
 
 ?>

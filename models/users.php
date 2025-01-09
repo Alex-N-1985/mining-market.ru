@@ -201,8 +201,9 @@ class _Users {
         if (!isset(self::$dbConn)){
             self::$dbConn = new database();
             self::$dbConn->connectToDB();
-        }
-        $query = "UPDATE users SET hash = '{$hash}', date_log = NOW() WHERE login = '{$login}'";
+        }        
+        $query = "UPDATE users SET hash = '{$hash}', date_login = NOW() WHERE login = '{$login}'";
+        var_dump($query);
         $result = self::$dbConn->executeQuery($query);
         if ($result)
             return true;

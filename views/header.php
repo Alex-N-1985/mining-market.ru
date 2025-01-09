@@ -12,7 +12,14 @@
                     </div>
                     <img src="/img/static/search.svg" alt="" id="quicksearchshow" onclick="quickSearchShow()">
                     <a href=""><img src="/img/static/bag.svg" alt=""></a>
-                    <img src="/img/static/user.svg" alt="" onclick="modalWindowOpenClose()">
+                    <?php                         
+                        if (!functions::isUserLogIn()){
+                            echo "<img src='/img/static/user.svg' alt='' onclick='modalWindowOpenClose()'>";
+                        } else {
+                            echo "<img src='/img/static/user.svg' onclick='toUserPersonalRoom()' alt='' style='border: 1px solid red; border-radius:50%'>";
+                        }                    
+                    ?>
+                    
                 </div>
             </div>
             <div class="header__cats">
@@ -30,15 +37,17 @@
                     <p onclick="modalWindowOpenClose()">X</p>
                 </div>            
                 <h4>Авторизация</h4>
-                <div class="modal-dialog__datafield">
-                    <input type="text" placeholder="Login" id="login">
-                </div>
-                <div class="modal-dialog__datafield">
-                    <input type="password" placeholder="Password" id="password">
-                </div>
-                <div class="modal-dialog__datafield">
-                    <a href="<?=$rout->domain.$rout->start?>/users/signin">Зарегистрироваться</a>
-                    <button>LogIn</button>
-                </div>                
+                <form method="post" action="http://<?=$rout->domain.$rout->start?>/auth/logIn">
+                    <div class="modal-dialog__datafield">
+                        <input type="text" placeholder="Login" name="login">
+                    </div>
+                    <div class="modal-dialog__datafield">
+                        <input type="password" placeholder="Password" name="password">
+                    </div>
+                    <div class="modal-dialog__datafield">
+                        <a href="<?=$rout->domain.$rout->start?>/users/signin">Зарегистрироваться</a>
+                        <input type="submit" title="LogIn" />
+                    </div>
+                </form>                
             </div>
         </div>
