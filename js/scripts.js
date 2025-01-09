@@ -15,8 +15,3 @@ function quickSearchShow() {
     searchState[0].style.display = "flex";
     searchShow.style.display = "none";
 }
-
-function toUserPersonalRoom(){
-    let domen = window.location.host
-    window.location.href = "./user/viewuser";
-}

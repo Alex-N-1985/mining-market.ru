@@ -6,6 +6,11 @@
             <div class="userdata__details">
                 <h3>Пользователь <?= $usr->login ?></h3>
                 <table>
+                    <tr><td colspan="2" class="userdata__details-avatar"><?php 
+                        if ($usr->avatar == 0){
+                            echo "<img src='/img/static/image-icon.png'/>";
+                        }
+                        ?></td></tr>
                     <tr>
                         <td class="userdata__details-fieldname">Логин:</td>
                         <td class="userdata__details-fielddata"><?= $usr->login ?></td>
@@ -14,11 +19,11 @@
                         <td class="userdata__details-fieldname">@mail:</td>
                         <td class="userdata__details-fielddata"><?= $usr->email ?></td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td class="userdata__details-fieldname">Название:</td>
                         <td class="userdata__details-fielddata">ШахтОборудование</td>
                     </tr>
-                    <!-- <tr>
+                    <tr>
                         <td class="userdata__details-fieldname">Адрес:</td>
                         <td class="userdata__details-fielddata">г. Москва</td>
                     </tr>
@@ -32,7 +37,10 @@
                     </tr>                     -->
                 </table>
                 <div class="userdata__details-buttons">
-                    <button>Редактирование</button>
+                    <a href="http://<?=$rout->domain.$rout->start?>/auth/logout">Выйти</a>
+                    <form method="post" action="http://<?=$rout->domain.$rout->start?>/user/edituser/<?=$usr->ID?>">
+                        <button type="submit">Редактирование</button>
+                    </form>
                 </div>
             </div>
         </section>

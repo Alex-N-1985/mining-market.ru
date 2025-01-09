@@ -16,7 +16,11 @@
                         if (!functions::isUserLogIn()){
                             echo "<img src='/img/static/user.svg' alt='' onclick='modalWindowOpenClose()'>";
                         } else {
-                            echo "<img src='/img/static/user.svg' onclick='toUserPersonalRoom()' alt='' style='border: 1px solid red; border-radius:50%'>";
+                            if ($rout->class !== "user")
+                                echo "<a href='http://".$rout->domain.$rout->start."/user/viewuser'><img src='/img/static/user.svg' alt='' style='border: 1px solid red; border-radius:50%'></a>";
+                            else {
+                                echo "<img src='/img/static/user.svg' alt=''>";
+                            }
                         }                    
                     ?>
                     
