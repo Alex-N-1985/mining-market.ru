@@ -292,3 +292,55 @@ footer {
 .payoutsuccess__container a:hover {
     text-decoration: underline;
 }
+
+.userdata {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;    
+}
+
+.userdata__avatar {
+    margin: 10px;    
+}
+
+.userdata__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.userdata__details h3 {
+    width: 100%;
+    display: block;
+    font-size: 40px;
+    color: #333333;
+    text-align: center;
+}
+
+.userdata__details-fieldname, .userdata__details-fielddata {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+    text-align: center;
+    padding: 5px;
+}
+
+.userdata__details-fielddata {
+    font-weight: normal;
+}
+
+.userdata__details-buttons {
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px;    
+}
+
+.userdata__details-buttons button {
+    height: 30px;
+    font-size: 16px;
+    color: black;
+}

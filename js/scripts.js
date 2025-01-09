@@ -18,5 +18,5 @@ function quickSearchShow() {
 
 function toUserPersonalRoom(){
     let domen = window.location.host
-    window.location.href = domen + "/users/viewuser";
+    window.location.href = "./user/viewuser";
 }
