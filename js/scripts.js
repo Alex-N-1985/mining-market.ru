@@ -15,3 +15,10 @@ function quickSearchShow() {
     searchState[0].style.display = "flex";
     searchShow.style.display = "none";
 }
+
+function regFieldsReset(){
+    document.getElementById("registration__cell-login").value = "";
+    document.getElementById("registration__cell-passw").value = "";
+    document.getElementById("registration__cell-confpas").value = "";
+    document.getElementById("registration__cell-email").value = "";    
+}

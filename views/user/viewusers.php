@@ -38,9 +38,7 @@
                 </table>
                 <div class="userdata__details-buttons">
                     <a href="http://<?=$rout->domain.$rout->start?>/auth/logout">Выйти</a>
-                    <form method="post" action="http://<?=$rout->domain.$rout->start?>/user/edituser/<?=$usr->ID?>">
-                        <button type="submit">Редактирование</button>
-                    </form>
+                    <a href="http://<?=$rout->domain.$rout->start?>/user/edituser/<?=$usr->ID?>">Редактирование</a>                    
                 </div>
             </div>
         </section>

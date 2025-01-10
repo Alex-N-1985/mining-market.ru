@@ -49,7 +49,7 @@
                         <input type="password" placeholder="Password" name="password">
                     </div>
                     <div class="modal-dialog__datafield">
-                        <a href="<?=$rout->domain.$rout->start?>/users/signin">Зарегистрироваться</a>
+                        <a href="http://<?=$rout->domain.$rout->start?>/auth/registration">Зарегистрироваться</a>
                         <input type="submit" title="LogIn" />
                     </div>
                 </form>                

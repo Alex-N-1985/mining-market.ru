@@ -349,7 +349,7 @@ footer {
 .userdata__details-buttons > a {
     display: block;
     height: 20px;
-    width: 100px;
+    width: 150px;
     padding: 5px;
     font-size: 16px;
     color: black;
@@ -368,4 +368,49 @@ footer {
     display: block;
     width: 250px;
     padding: 15px;
+}
+
+.registration {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 14px;    
+    color: #333333;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;    
+}
+
+.registration > h2 {
+    width: 100%;
+    font-size: 48px;
+    color: #333333;
+    text-align: center;
+}
+
+.registration__cell, .registration__cell-buttons {
+    width: 20%;
+    padding: 0.5%;
+    display: flex;
+    justify-content: center;
+}
+
+.registration__cell-buttons {
+    justify-content: space-around;
+}
+
+.registration__cell > input {
+    width: 90%;
+}
+
+.registration__cell-buttons > button {
+    width: 30%;
+    height: 30px;
 }

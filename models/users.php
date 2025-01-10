@@ -16,7 +16,7 @@ class _Users {
     
     public static $dbConn;
     
-    public function __construct($id = 0, $login = "", $password = "", $email = "", $avatar = 1, $date_reg = null, $date_log = null, $hash = "", $secure_level = 1)
+    public function __construct($id = 0, $login = "", $password = "", $email = "", $avatar = 0, $date_reg = null, $date_log = null, $hash = "", $secure_level = 1)
     {
         if (!isset(self::$dbConn)){
             self::$dbConn = new  database();
@@ -215,8 +215,8 @@ class _Users {
         if (!isset(self::$dbConn)){
             self::$dbConn = new database();
             self::$dbConn->connectToDB();
-        }
-        $query = "INSERT INTO users (ID, login, password, email, avatar, date_reg, date_log, hash, secure_level) VALUES (NULL, '{$user->login}', '{$user->password}', '{$user->email}', {$user->avatar},  NOW(), NOW(), '', 2)";
+        }        
+        $query = "INSERT INTO users (ID, login, password, email, avatar, date_reg, date_login, hash, secure_level) VALUES (NULL, '{$user->login}', '{$user->password}', '{$user->email}', {$user->avatar},  NOW(), NOW(), '', 2)";        
         $result = self::$dbConn->executeQuery($query);
         if ($result)
             return true;

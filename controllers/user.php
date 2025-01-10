@@ -34,7 +34,7 @@
                     if ($usr->avatar != (int)$_POST['avatar']){
                         $usr->avatar = (int)$_POST['avatar'];
                     }
-                    $res = _users::updateUserDataInDB($usr);
+                    $res = _Users::updateUserDataInDB($usr);
                     header("Location:{$rout->start}/user/viewuser");
                 }
                 $content = file_get_contents("views/user/edituser.php");
