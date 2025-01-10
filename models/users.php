@@ -62,7 +62,7 @@ class _Users {
                 $row["email"],
                 $row["avatar"],
                 $row["date_reg"],
-                $row["date_log"],
+                $row["date_login"],
                 $row["hash"],
                 $row["secure_level"]
             );
@@ -92,7 +92,7 @@ class _Users {
                     $row["email"],
                     $row["avatar"],
                     $row["date_reg"],
-                    $row["date_log"],
+                    $row["date_login"],
                     $row["hash"],
                     $row["secure_level"]
                 );
@@ -118,7 +118,7 @@ class _Users {
                     $row["email"],
                     $row["avatar"],
                     $row["date_reg"],
-                    $row["date_log"],
+                    $row["date_login"],
                     $row["hash"],
                     $row["secure_level"]
                 );
@@ -144,7 +144,7 @@ class _Users {
                     $row["email"],
                     $row["avatar"],
                     $row["date_reg"],
-                    $row["date_log"],
+                    $row["date_login"],
                     $row["hash"],
                     $row["secure_level"]
                 );
@@ -172,7 +172,7 @@ class _Users {
                         $row["email"],
                         $row["avatar"],
                         $row["date_reg"],
-                        $row["date_log"],
+                        $row["date_login"],
                         $row["hash"],
                         $row["secure_level"]
                     );
@@ -229,7 +229,8 @@ class _Users {
             self::$dbConn = new database();
             self::$dbConn->connectToDB();
         }
-        $query = "UPDATE users SET login='{$user->login}', password='{$user->password}', email='{$user->email}', avatar = {$user->avatar}, date_reg='{$user->date_reg}', date_log='{$user->date_log}', hash='{$user->hash}', secure_level={$user->secure_level} WHERE ID={$user->ID}";
+        $query = "UPDATE users SET login='{$user->login}', password='{$user->password}', email='{$user->email}', avatar = {$user->avatar}, date_reg='{$user->date_reg}', date_login='{$user->date_log}', hash='{$user->hash}', secure_level={$user->secure_level} WHERE ID={$user->ID}";
+        var_dump($query); echo "<br>";
         $result = self::$dbConn->executeQuery($query);
         if ($result)
             return true;
@@ -249,6 +250,5 @@ class _Users {
         else
             return false;
     }
-
 }
 ?>

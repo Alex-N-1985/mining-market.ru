@@ -1,4 +1,4 @@
-<p class="breadcrumbs"><a href="./index.html">Главная</a> > Пользователь</p>
+<p class="breadcrumbs"><a href="http://<?=$rout->domain.$rout->start?>">Главная</a> > Пользователь</p>
         <section class="userdata">
             <div class="userdata__avatar">
                 <img src="./img/image-icon.png" alt="">

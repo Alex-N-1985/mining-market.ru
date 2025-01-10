@@ -22,3 +22,15 @@ function regFieldsReset(){
     document.getElementById("registration__cell-confpas").value = "";
     document.getElementById("registration__cell-email").value = "";    
 }
+
+function generatePassword(){
+    let chars="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let pLenght = 12;
+    let passw = "";
+    for (let i = 0; i < pLenght; i++){
+        let rNum = Math.floor(Math.random() * chars.length);
+        passw += chars[rNum];
+    }
+    $('#npassw').val(passw);
+    window.alert("Сгенерированный пароль: " + passw);
+}
