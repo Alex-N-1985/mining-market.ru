@@ -55,7 +55,7 @@ class _Users {
         $arr = array();
         $usr = NULL;
         while ($row = $result->fetch()){
-            $usr = new _users(
+            $usr = new _Users(
                 $row["ID"],
                 $row["login"],
                 $row["password"],
@@ -85,7 +85,7 @@ class _Users {
         $usr = NULL;
         if ($result){
             if ($row = $result->fetch()){
-                $usr = new _users(
+                $usr = new _Users(
                     $row["ID"],
                     $row["login"],
                     $row["password"],
@@ -111,7 +111,7 @@ class _Users {
         $usr = NULL;
         if ($result){
             if ($row = $result->fetch()){
-                $usr = new _users(
+                $usr = new _Users(
                     $row["ID"],
                     $row["login"],
                     $row["password"],
@@ -129,7 +129,7 @@ class _Users {
 
     public static function getUserFromDBbyHash($hash){
         if (!isset(self::$dbConn)){
-            self::$dbConn = new  database();
+            self::$dbConn = new database();
             self::$dbConn->connectToDB();
         }
         $query = "SELECT * FROM users WHERE hash = ?";
@@ -137,7 +137,7 @@ class _Users {
         $usr = NULL;
         if ($result){
             if ($row = $result->fetch()){
-                $usr = new _users(
+                $usr = new _Users(
                     $row["ID"],
                     $row["login"],
                     $row["password"],
@@ -165,7 +165,7 @@ class _Users {
             $result = self::$dbConn->executeQuery($query);
             if ($result){
                 if ($row = $result->fetch()){
-                    $user = new _users(
+                    $user = new _Users(
                         $row["ID"],
                         $row["login"],
                         $row["password"],
