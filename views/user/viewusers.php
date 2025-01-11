@@ -37,6 +37,9 @@
                     </tr>                     -->
                 </table>
                 <div class="userdata__details-buttons">
+                    <? if (functions::isUserAdmin()){
+                        echo "<a href='http://".$rout->domain.$rout->start."/admin/index'>Админ-панель</a>";
+                    } ?>
                     <a href="http://<?=$rout->domain.$rout->start?>/auth/logout">Выйти</a>
                     <a href="http://<?=$rout->domain.$rout->start?>/user/edituser/<?=$usr->ID?>">Редактирование</a>                    
                 </div>
