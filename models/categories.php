@@ -4,7 +4,7 @@
     class _categories {
         public $ID;
         public $name;
-        public $uri
+        public $uri;
         public $cat_type;
         public $img_title;
 

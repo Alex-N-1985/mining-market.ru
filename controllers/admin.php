@@ -2,6 +2,8 @@
 
     include_once ("models\users.php");
     include_once ("models\statpages.php");
+    include_once ("models\images.php");
+    include_once ("models\categories.php");
 
     class Admin {
 
@@ -92,6 +94,57 @@
             }
             $content = file_get_contents("views/admin/editspages.php");
             eval("?>".$content);
+        }
+
+        public function viewcategories(){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            $cats = _categories::getCategoriesFromDB();
+            $content = file_get_contents("views/admin/viewcats.php");
+            eval("?>".$content);
+        }
+        
+        public function addcategory(){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            if (isset($_POST["cName"]) && isset($_POST["catType"]) && $_POST["cName"] != null && isset($_POST["cUri"]) && $_POST["cUri"] != null){
+                $cat = new _categories(null, $_POST["cName"], $_POST["cUri"], $_POST["catType"], 0);
+                _categories::addCategoryInDB($cat);
+                header("Location:{$rout->start}/admin/viewcategories");
+            }
+            $content = file_get_contents("views/admin/addcategory.php");
+            eval("?>".$content);
+        }
+
+        public function editcategories($id){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            $cat = _categories::getCategoriesFromDBbyID($id);
+            if (isset($_POST["cName"]) && isset($_POST["catType"]) && isset($_POST["cUri"])){
+                $cat->name = $_POST["cName"];
+                $cat->uri = $_POST["cUri"];
+                $cat->catType = $_POST["catType"];
+                _categories::updateCategoryDataInDB($cat);
+                header("Location:{$rout->start}/admin/viewcategories");
+            }
+            $content = file_get_contents("views/admin/editcategory.php");
+            eval("?>".$content);
+        }
+
+        public function deletecategory($id){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            
+            _categories::deleteCategoryFromDB($id);
+            header("Location:{$rout->start}/admin/viewcategories");
         }
 
     }
