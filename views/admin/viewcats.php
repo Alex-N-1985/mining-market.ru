@@ -1,4 +1,4 @@
-<p><a href="http://<?=$rout->domain.$rout->start?>">Главная</a> >
+<p class="breadcrumbs"><a href="http://<?=$rout->domain.$rout->start?>">Главная</a> >
     <a href="http://<?=$rout->domain.$rout->start?>/admin/index">Админ панель</a> > Категории</p>
 <h3>Просмотр данных категорий</h3>
 <br/><p><a href="http://<?=$rout->domain.$rout->start?>/admin/addcategory">Добавить категорию</a></p>

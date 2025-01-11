@@ -36,7 +36,7 @@
             $arr = array();
             if ($result){
                 while ($row = $result->fetch()){
-                    $imc = new _imagesCats($row["ID"], $row["image"], $row["category"]);
+                    $imc = new _cats_images($row["ID"], $row["image"], $row["category"]);
                     $arr[] = $imc;
                 }
             }
@@ -57,7 +57,7 @@
             $imc = null;
             if ($result){
                 if ($row = $result->fetch()){
-                    $imc = new _imagesCats($row["ID"], $row["image"], $row["category"]);
+                    $imc = new _cats_images($row["ID"], $row["image"], $row["category"]);
                 }
             }
             return $imc;
@@ -74,7 +74,7 @@
             $arr = array();
             if ($result){
                 while ($row = $result->fetch()){
-                    $imc = new _imagesCats($row["ID"], $row["image"], $row["category"]);
+                    $imc = new _cats_images($row["ID"], $row["image"], $row["category"]);
                     $arr[] = $imc;
                 }
             }
@@ -95,7 +95,7 @@
             $imc = null;
             if ($result){
                 if ($row = $result->fetch()){
-                    $imc = new _imagesCats((int)$row["ID"], (int)$row["image"], (int)$row["category"]);
+                    $imc = new _cats_images((int)$row["ID"], (int)$row["image"], (int)$row["category"]);
                 }
             }
             return $imc;
@@ -106,7 +106,7 @@
                 self::$dbConn = new database();
                 self::$dbConn->connectToDB();
             }
-            $query = "INSERT INTO cats_images (ID, image, category) VALUES (null, {$imc->image}, {$imc->category})";
+            $query = "INSERT INTO cats_images (ID, image, category) VALUES (null, {$imc->image}, {$imc->category})";            
             $result = self::$dbConn->executeQuery($query);
             if ($result)
                 return true;

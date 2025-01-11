@@ -448,3 +448,7 @@ form {
 .adminview td, th {
     padding: 10px;
 }
+
+.admpanel-icon {
+    width: 50px;
+}

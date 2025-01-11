@@ -4,8 +4,8 @@
     Данные пользователя <?= $user->login ?></p>
 <br/><p><a href="http://<?=$rout->domain.$rout->start?>/admin/edituser/<?=$user->ID?>">Изменить</a></p>
 <h3>Просмотр данных пользователя</h3>
-<!-- <h3>Аватар:</h3>
-<p><img src="/img/<?=$img->uri.".".$img->extension?>"/></p> -->
+<h3>Аватар:</h3>
+<p><img src="/img/<?=$img->uri.".".$img->extension?>"/></p>
 <h4>Логин:</h4>
 <p><?=$user->login?></p><br/>
 <h4>EMail:</h4>

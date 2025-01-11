@@ -90,7 +90,7 @@
                 self::$dbConn = new database();
                 self::$dbConn->connectToDB();
             }
-            $query = "SELECT * FROM categories WHERE catType = '{$cat_type}'";
+            $query = "SELECT * FROM categories WHERE cat_type = '{$cat_type}'";
             $result = self::$dbConn->executeQuery($query);
             $arr = array();
             $cat = NULL;

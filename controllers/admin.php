@@ -4,6 +4,7 @@
     include_once ("models\statpages.php");
     include_once ("models\images.php");
     include_once ("models\categories.php");
+    include_once ("models\cats_images.php");
 
     class Admin {
 
@@ -34,7 +35,7 @@
                 header("Location:{$rout->start}/main/unauthaccess");
             }
             $user = _Users::getUserFromDBbyID($id);
-            // $img = _images::getImagesFromDBbyID($user->avatar);
+            $img = _images::getImagesFromDBbyID($user->avatar);
             $content = file_get_contents("views/admin/viewuser.php");
             eval("?>".$content);
         }
@@ -141,12 +142,90 @@
             global $rout;
             if (!functions::isUserAdmin()){
                 header("Location:{$rout->start}/main/unauthaccess");
-            }
-            
+            }            
             _categories::deleteCategoryFromDB($id);
             header("Location:{$rout->start}/admin/viewcategories");
         }
 
+        public function viewimages(){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            } 
+            $imgs = _images::getImagesFromDB();
+            $content = file_get_contents("views/admin/viewimages.php");
+            eval("?>" . $content);
+        }
+
+        public function addimage(){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            $cats = _categories::getCategoriesFromDBbyType("Images");            
+            if (isset($_FILES['file']) && isset($_POST['imgType'])){
+                $nName = functions::cyrillictranslit($_FILES['file']['name']);
+                $nPath = "temp/".$nName;
+                if (move_uploaded_file($_FILES['file']['tmp_name'], $nPath)){
+                    $pt = strpos($nName, '.');
+                    $url = substr($nName, 0, $pt);
+                    $ext = substr($nName, $pt + 1);
+                    $newDir = "img/";
+                    $newSFileName = $newDir.$url.".".$ext;
+                    $src = "temp/".$nName;
+                    $imgType = $_POST['imgType'];
+                    if ($imgType == 7){
+                        $nWidth = 200;
+                        $nHeight = 200;
+                    } else {
+                        $nWidth = 600;
+                        $nHeight = 600;
+                    }
+                    if (functions::imgresize($src, $newSFileName, $nWidth, $nHeight)){
+                        unlink($src);
+                    }
+                    $content = file_get_contents("views/admin/inputimage.php");
+                    eval("?>".$content);
+                } else {
+                    echo "Ошибка загрузки файла! <br>";
+                }
+            } else {
+                $content = file_get_contents("views/admin/addimage.php");
+                eval("?>" . $content);
+            }
+        }
+
+        public function inputimage(){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            if (isset($_POST['inpUrl']) && isset($_POST['inpExt']) && isset($_POST['inpTitle']) && isset($_POST['imgType'])){
+                $img = new _images(null, $_POST['inpTitle'], $_POST['inpUrl'], $_POST['inpExt'], null, _users::getCurrentUser()->ID);
+                _images::addImageToDB($img);
+                $imgID = _images::getImageByUrlAndExt($img->uri, $img->extension)->ID;
+                if ((int)$_POST['imgType'] == 7){
+                    $cat = _categories::getCategoriesFromDBbyName("Аватары");
+                } else {
+                    $cat = _categories::getCategoriesFromDBbyID($_POST['imgType']);
+                }
+                $imgCat = new _cats_images(null, $imgID, $cat->ID);
+                $res = _cats_images::addImageCatsToDB($imgCat);                
+                header("Location:{$rout->start}/admin/viewimages");
+            }
+        }
+
+        public function deleteimage($id){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            $img = _images::getImagesFromDBbyID($id);
+            if ($img->canDelete > 0){
+                _images::deleteImageFromDB($id);
+            }
+            header("Location:{$rout->start}/admin/viewimages");
+        }
     }
 
 ?>

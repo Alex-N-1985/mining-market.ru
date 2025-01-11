@@ -6,9 +6,12 @@
             <div class="userdata__details">
                 <h3>Пользователь <?= $usr->login ?></h3>
                 <table>
+                    
                     <tr><td colspan="2" class="userdata__details-avatar"><?php 
                         if ($usr->avatar == 0){
                             echo "<img src='/img/static/image-icon.png' alt=''/>";                        
+                        } else {
+                            echo "<img src='/img/".$img->uri.".".$img->extension."'>";
                         }
                         ?></td></tr>
                     <tr>
