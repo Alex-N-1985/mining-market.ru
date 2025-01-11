@@ -5,8 +5,7 @@
         public function viewuser(){
             global $rout;
             if (functions::isUserLogIn()){
-                $usr = _users::getCurrentUser();
-                $img = _images::getImagesFromDBbyID($usr->avatar);
+                $usr = _users::getCurrentUser();                
                 $content = file_get_contents("views/user/viewusers.php");
                 eval("?>".$content);
             } else {
