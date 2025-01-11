@@ -1,6 +1,7 @@
 <?php 
 
     include_once ("models\users.php");
+    include_once ("models\statpages.php");
 
     class Admin {
 
@@ -65,6 +66,32 @@
                 _users::deleteUserData($id);
             }
             header("Location:{$rout->start}/admin/viewusers");
+        }
+
+        public function viewspages(){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            $spages = _statpages::getStatPagesFromDB();
+            $content = file_get_contents("views/admin/viewspages.php");
+            eval("?>".$content);
+        }
+
+        public function editspages($id){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            $spage = _statpages::getStatPagesFromDBbyID($id);
+            if (isset($_POST["pageID"]) && isset($_POST["spName"]) && isset($_POST["spContent"]) &&
+                $_POST["spContent"] != $spage->content){
+                $sp = new _statpages($spage->ID, $spage->name, $_POST["spContent"]);
+                _statpages::updateStatPagesInDB($sp);
+                header("Location:{$rout->start}/main/index");
+            }
+            $content = file_get_contents("views/admin/editspages.php");
+            eval("?>".$content);
         }
 
     }
