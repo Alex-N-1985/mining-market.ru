@@ -111,9 +111,22 @@
             global $rout;
             if (!functions::isUserAdmin()){
                 header("Location:{$rout->start}/main/unauthaccess");
+            }            
+            $imgTitles = _images::getImagesFromDB();            
+            $iTitles = array();
+            if ($imgTitles != null) {
+                $cID = _categories::getCategoriesFromDBbyName("Титульные изображения")->ID;
+                foreach ($imgTitles as $item) {
+                    $IC = _cats_images::getImageCatsFromDBbyImageAndCatID($item->ID, $cID);
+                    if ($IC != null) {
+                        $iTitles[] = $item;
+                    }
+                }
             }
-            if (isset($_POST["cName"]) && isset($_POST["catType"]) && $_POST["cName"] != null && isset($_POST["cUri"]) && $_POST["cUri"] != null){
-                $cat = new _categories(null, $_POST["cName"], $_POST["cUri"], $_POST["catType"], 0);
+            var_dump($_POST); echo "<br>";
+            if (isset($_POST["cName"]) && isset($_POST["catType"]) && 
+                $_POST["cName"] != null && isset($_POST["cUri"]) && $_POST["cUri"] != null ){                
+                $cat = new _categories(null, $_POST["cName"], $_POST["cUri"], $_POST["catType"], $_POST["imgTitle"]);
                 _categories::addCategoryInDB($cat);
                 header("Location:{$rout->start}/admin/viewcategories");
             }

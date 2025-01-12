@@ -12,6 +12,20 @@
                     <option value="Images">Изображения</option>                   
                     <option value="Products">Товары</option>                    
                 </select></td></tr>
+        <tr><td>Титульное изображение</td><td><select name="imgTitle">
+        <?php
+            if (count($iTitles) > 0){                    
+                foreach ($iTitles as $item){                        
+                    $opt = "<option value='{$item->ID}'";
+                    if ((int)$item->ID == 15){
+                        $opt .= "selected";
+                    }
+                    $opt .= ">{$item->name}</option>";
+                    echo $opt;
+                }
+            }
+        ?>
+        </select></td></tr>
         <tr><td><input type="reset" value="Очистить"/></td>
             <td><input type="submit" value="Добавить"/></td></tr>
     </table>
