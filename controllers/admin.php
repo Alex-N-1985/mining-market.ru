@@ -5,6 +5,7 @@
     include_once ("models\images.php");
     include_once ("models\categories.php");
     include_once ("models\cats_images.php");
+    include_once ("models\articles.php");
 
     class Admin {
 
@@ -285,6 +286,86 @@
             }
             _cats_images::deleteImageCatFromDB($id);
             header("Location:{$rout->start}/admin/viewcatsimages");
+        }
+
+        public function viewarticles(){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            $arts = _articles::getArticlesFromDB();
+            $content = file_get_contents("views/admin/viewarticles.php");
+            eval("?>".$content);
+        }
+
+        public function viewarticle($id){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            $art = _articles::getArticlesFromDBbyID($id);
+            $publish = _users::getUserFromDBbyID($art->published)->login;
+            $content = file_get_contents("views/admin/viewarticle.php");
+            eval("?>".$content);
+        }
+
+        public function addarticle(){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            $images = _images::getImagesFromDB();
+            if (isset($_POST['aName']) && $_POST['aName'] != "" &&
+                isset($_POST['author']) && $_POST['author'] != "" &&
+                isset($_POST['shorttext']) && $_POST['shorttext'] != "" &&
+                isset($_POST['content']) && $_POST['content'] != "" && $_POST['image']){
+                $art = new _articles(
+                    null,
+                    $_POST['aName'],
+                    $_POST['content'],
+                    $_POST['shorttext'],
+                    $_POST['author'],
+                    _users::getCurrentUser()->ID,
+                    null,
+                    (int)$_POST['image']
+                );
+                _articles::addArticleToDB($art);
+                header("Location:{$rout->start}/admin/viewarticles");
+            }
+            $content = file_get_contents("views/admin/addarticle.php");
+            eval("?>".$content);
+        }
+
+        public function editarticle($id){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            $art = _articles::getArticlesFromDBbyID($id);
+            $images = _images::getImagesFromDB();
+            if (isset($_POST['aName']) && $_POST['aName'] != "" &&
+                isset($_POST['author']) && $_POST['author'] != "" &&
+                isset($_POST['shorttext']) && $_POST['shorttext'] != "" &&
+                isset($_POST['content']) && $_POST['content'] != "" && $_POST['image']){
+                $art->name = $_POST['aName'];
+                $art->content = $_POST['content'];
+                $art->author = $_POST['author'];
+                $art->preview = $_POST['shorttext'];
+                $art->img_title = (int)$_POST['image'];
+                _articles::updateArticleInDB($art);
+                header("Location:{$rout->start}/admin/viewarticles");
+            }
+            $content = file_get_contents("views/admin/editarticle.php");
+            eval("?>".$content);
+        }
+
+        public function deletearticle($id){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            _articles::deleteArticleFromDB($id);
+            header("Location:{$rout->start}/admin/viewarticles");
         }
     }
 ?>
