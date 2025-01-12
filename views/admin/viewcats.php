@@ -3,7 +3,7 @@
 <h3>Просмотр данных категорий</h3>
 <br/><p><a href="http://<?=$rout->domain.$rout->start?>/admin/addcategory">Добавить категорию</a></p>
 <table class="adminview">
-    <tr><td>ID</td><td>Название</td><td>Тип категории</td><td>Изменить</td><td>Удалить</td></tr>
+    <tr><td>ID</td><td>Название</td><td>URI</td><td>Тип категории</td><td>Титульное фото</td><td>Изменить</td><td>Удалить</td></tr>
     <?php
     if ($cats != null){
         foreach ($cats as $item) {

@@ -127,10 +127,22 @@
                 header("Location:{$rout->start}/main/unauthaccess");
             }
             $cat = _categories::getCategoriesFromDBbyID($id);
-            if (isset($_POST["cName"]) && isset($_POST["catType"]) && isset($_POST["cUri"])){
+            $imgTitles = _images::getImagesFromDB();            
+            $iTitles = array();
+            if ($imgTitles != null) {
+                $cID = _categories::getCategoriesFromDBbyName("Титульные изображения")->ID;
+                foreach ($imgTitles as $item) {
+                    $IC = _cats_images::getImageCatsFromDBbyImageAndCatID($item->ID, $cID);
+                    if ($IC != null) {
+                        $iTitles[] = $item;
+                    }
+                }
+            }                      
+            if (isset($_POST["cName"]) && isset($_POST["catType"]) && isset($_POST["cUri"]) && isset($_POST["imgTitle"])){
                 $cat->name = $_POST["cName"];
                 $cat->uri = $_POST["cUri"];
                 $cat->catType = $_POST["catType"];
+                $cat->img_title = $_POST['imgTitle'];
                 _categories::updateCategoryDataInDB($cat);
                 header("Location:{$rout->start}/admin/viewcategories");
             }

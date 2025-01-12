@@ -5,11 +5,9 @@
         <tr><td>Аватар:  <select name="avatar">
             <?php
                 if ($avatars != null) {
-                    $cID = _categories::getCategoriesFromDBbyName("Аватары")->ID;
-                    var_dump($cID); echo "<br>";
+                    $cID = _categories::getCategoriesFromDBbyName("Аватары")->ID;                    
                     foreach ($avatars as $item) {
-                        $IC = _cats_images::getImageCatsFromDBbyImageAndCatID($item->ID, $cID);
-                        var_dump($IC); echo "<br>";
+                        $IC = _cats_images::getImageCatsFromDBbyImageAndCatID($item->ID, $cID);                        
                         if ($IC != null){
                             $opt = "<option value='".$item->ID."'";
                             if ((int)$item->ID == (int)$usr->avatar){
