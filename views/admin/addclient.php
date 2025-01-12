@@ -8,10 +8,10 @@
         <tr><td>Адрес:</td><td><input type="text" name="adress" placeholder="Адрес"/></td></tr>
         <tr><td>Телефон:</td><td><input type="tel" name="phone" placeholder="Телефон"/></td></tr>
         <tr><td>Тип клиента:</td><td><select name="clientType">
-            <option value="Клиент" selected>Клиент</option>
-            <option value="Трейдер">Трейдер</option>
-            <option value="Производитель">Производитель</option>
-            <option value="Сотрудник">Сотрудник</option>
+            <option value="client" selected>Клиент</option>
+            <option value="trader">Трейдер</option>
+            <option value="manufacturer">Производитель</option>
+            <option value="employer">Сотрудник</option>
         </select></td></tr>
         <tr><td>Пользователь</td><td><select name="login">
             <option value='0' selected>Без аккаунта</option>

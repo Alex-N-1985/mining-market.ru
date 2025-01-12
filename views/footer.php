@@ -2,7 +2,7 @@
             <div class="footer__columns">
                 <h3>О Компании</h3>            
                 <p><a href="http://<?=$rout->domain.$rout->start?>/articles/index">Статьи</a></p>
-                <p><a href="">Партнеры</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/clients/index">Партнеры</a></p>
                 <p><a href="http://<?=$rout->domain.$rout->start?>/categories/index">Каталоги</a></p>                
                 <p><a href="http://<?=$rout->domain.$rout->start?>/main/aboutus">О нас</a></p>
                 <p><a href="http://<?=$rout->domain.$rout->start?>/main/contactus">Контакты</a></p>
@@ -19,8 +19,8 @@
             </div>
             <div class="footer__columns">
                 <h3>Партнеры и клиенты</h3>
-                <p><a href="">Клиенты</a></p>
-                <p><a href="">ТЗГШО</a></p>
-                <p><a href="">Производители</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/clients/type/client">Клиенты</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/clients/type/trader">ТЗГШО</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/clients/type/manufacturer">Производители</a></p>
             </div>
         </footer>

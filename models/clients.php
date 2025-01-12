@@ -87,6 +87,35 @@
             return $item;            
         }
 
+        public static function getClientsFromDBbyType($clientType){
+            if (!isset(self::$dbConn)){
+                self::$dbConn = new database();
+                self::$dbConn->connectToDB();
+            }
+            $query = "SELECT * FROM Clients WHERE client_type = '{$clientType}'";            
+            $result = self::$dbConn->executeQuery($query);
+            $arr = array();
+            $item = null;
+            if ($result){
+                while ($row = $result->fetch()){
+                    $item = new _clients(
+                        $row["ID"],
+                        $row["name"],
+                        $row["adress"],
+                        $row["phone"],
+                        $row["client_type"],
+                        $row['login']                        
+                    );
+                    $arr[] = $item;
+                }
+            }
+            if (count($arr) > 0){
+                return $arr;
+            } else {
+                return NULL;
+            }
+        }
+
         public static function addClientToDB($clt){
             if (!isset(self::$dbConn)){
                 self::$dbConn = new database();

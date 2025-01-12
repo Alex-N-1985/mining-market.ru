@@ -8,10 +8,10 @@
         <tr><td>Адрес:</td><td><input type="text" name="adress" placeholder="Адрес" value="<?=$clt->adress?>"/></td></tr>
         <tr><td>Телефон:</td><td><input type="tel" name="phone" placeholder="Телефон" value="<?=$clt->phone?>"/></td></tr>
         <tr><td>Тип клиента:</td><td><select name="clientType">
-            <option value="Клиент" <?php if ($clt->client_type == "Клиент") echo "selected";?> >Клиент</option>
-            <option value="Трейдер" <?php if ($clt->client_type == "Трейдер") echo "selected";?> >Трейдер</option>
-            <option value="Производитель" <?php if ($clt->client_type == "Производитель") echo "selected";?> >Производитель</option>
-            <option value="Сотрудник" <?php if ($clt->client_type == "Сотрудник") echo "selected";?> >Сотрудник</option>
+            <option value="client" <?php if ($clt->client_type == "client") echo "selected";?> >Клиент</option>
+            <option value="trader" <?php if ($clt->client_type == "trader") echo "selected";?> >Трейдер</option>
+            <option value="manufacturer" <?php if ($clt->client_type == "manufacturer") echo "selected";?> >Производитель</option>
+            <option value="employer" <?php if ($clt->client_type == "employer") echo "selected";?> >Сотрудник</option>
         </select></td></tr>
         <tr><td>Пользователь</td><td><select name="login">
             <option value='0' <?php if ($clt->login == 0) echo "selected";?>>Без аккаунта</option>
