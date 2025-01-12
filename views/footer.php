@@ -1,7 +1,7 @@
 <footer>
             <div class="footer__columns">
                 <h3>О Компании</h3>            
-                <p><a href="">Статьи</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/articles/index">Статьи</a></p>
                 <p><a href="">Партнеры</a></p>
                 <p><a href="http://<?=$rout->domain.$rout->start?>/categories/index">Каталоги</a></p>                
                 <p><a href="http://<?=$rout->domain.$rout->start?>/main/aboutus">О нас</a></p>

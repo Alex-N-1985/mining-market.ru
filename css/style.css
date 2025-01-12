@@ -510,3 +510,85 @@ form {
     font-weight: bold;
     text-decoration: underline;
 }
+
+.blog {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.blog h2 {
+    width: 100%;
+    font-size: 40px;
+    color:#333333;
+    text-align: left;
+}
+
+.blog__article {
+    width: 95%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1%;
+}
+
+.blog__article img {
+    display: block;
+    width: 30%;
+}
+
+.blog__article-container {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.blog__article-container h3 {
+    width: 100%;
+    font-size: 25px;    
+    text-align: center;
+    
+}
+
+.blog__article-container h3 a {
+    color: #333333;
+    text-decoration: none;
+}
+
+.blog__article-container p {
+    color: #333333;
+    font-size: 16px;
+    text-align: left;    
+}
+
+.article {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.article h3 {
+    width: 100%;
+    font-size: 35px;
+    color: #333333;
+    text-align: center;
+}
+
+.article img {
+    display: block;
+    width: 33%;
+}
+
+.article div {
+    width: 95%;
+    margin: 1%;
+    font-size: 16px;
+    text-align: left;
+    color: #333333;
+}
