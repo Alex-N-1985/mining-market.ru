@@ -92,7 +92,7 @@
                 self::$dbConn = new database();
                 self::$dbConn->connectToDB();
             }
-            $query = "INSERT INTO Clients(ID, name, adress, phone, client_type, login) VALUES (NULL, '{$clt->name}', '{$clt->adress}', '{$clt->phone}', '{$clt->client_type}', $clt->login)";
+            $query = "INSERT INTO Clients (ID, name, adress, phone, client_type, login) VALUES (NULL, '{$clt->name}', '{$clt->adress}', '{$clt->phone}', '{$clt->client_type}', $clt->login)";            
             $result = self::$dbConn->executeQuery($query);
             if ($result)
                 return true;

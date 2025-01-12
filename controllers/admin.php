@@ -6,6 +6,7 @@
     include_once ("models\categories.php");
     include_once ("models\cats_images.php");
     include_once ("models\articles.php");
+    include_once ("models\clients.php");
 
     class Admin {
 
@@ -366,6 +367,77 @@
             }
             _articles::deleteArticleFromDB($id);
             header("Location:{$rout->start}/admin/viewarticles");
+        }
+
+        public function viewclients(){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            $clts = _clients::getClientsFromDB();
+            $content = file_get_contents("views/admin/viewclients.php");
+            eval("?>".$content);
+        }
+
+        public function viewclient($id){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            $clt = _clients::getClientFromDBbyID($id);
+            $content = file_get_contents("views/admin/viewclient.php");
+            eval("?>".$content);
+        }
+
+        public function addclient(){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            $usrs = _Users::getUsersFromDB();
+            if (isset($_POST["name"]) && $_POST["name"] != "" && 
+            isset($_POST["adress"]) && $_POST["adress"] != "" &&
+            isset($_POST["phone"]) && $_POST["phone"] != "" &&
+            isset($_POST["clientType"]) && isset($_POST["login"])){
+                $clt = new _clients(null, $_POST['name'], $_POST['adress'], $_POST['phone'], 
+                $_POST['clientType'], $_POST["login"]);                
+                _clients::addClientToDB($clt);
+                header("Location:{$rout->start}/admin/viewclients");
+            }
+            $content = file_get_contents("views/admin/addclient.php");
+            eval("?>".$content);
+        }
+
+        public function editclient($id){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            $clt = _clients::getClientFromDBbyID($id);
+            $usrs = _Users::getUsersFromDB();
+            if (isset($_POST["name"]) && $_POST["name"] != "" && 
+            isset($_POST["adress"]) && $_POST["adress"] != "" &&
+            isset($_POST["phone"]) && $_POST["phone"] != "" &&
+            isset($_POST["clientType"]) && isset($_POST["login"])){
+                $clt->name = $_POST["name"];
+                $clt->adress = $_POST["adress"];
+                $clt->phone = $_POST["phone"];
+                $clt->client_type = $_POST["clientType"];
+                $clt->login = $_POST["login"];
+                _clients::updateClientInDB($clt);
+                header("Location:{$rout->start}/admin/viewclient/{$clt->ID}");
+            }
+            $content = file_get_contents("views/admin/editclient.php");
+            eval("?>".$content);
+        }
+
+        public function deleteclient($id){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            _clients::deleteClientInDB($id);
+            header("Location:{$rout->start}/admin/viewclients");
         }
     }
 ?>

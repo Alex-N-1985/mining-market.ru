@@ -2,18 +2,18 @@
     <a href="http://<?=$rout->domain.$rout->start?>/admin/index">Админ панель</a> >
     <a href="http://<?=$rout->domain.$rout->start?>/admin/viewarticles">Cтатьи</a> > <?=$art->name?></p>
 <br/><p><a href="http://<?=$rout->domain.$rout->start?>/admin/editarticle/<?=$art->ID?>">Изменить</a></p>
-<h2>Просмотр данных статьи</h2>
-<h3>Название:</h3>
+<h3>Просмотр данных статьи</h3>
+<h4>Название:</h4>
 <p><?=$art->name?></p><br/>
-<h3>Титульное фото</h3>
+<h4>Титульное фото</h4>
 <p><img src="/img/<?=_images::getImagesFromDBbyID($art->img_title)->uri."."._images::getImagesFromDBbyID($art->img_title)->extension?>"/></p>
-<h3>Текст для предпросмотра:</h3>
+<h4>Текст для предпросмотра:</h4>
 <p><?=$art->preview?></p><br/>
-<h3>Контент:</h3>
+<h4>Контент:</h4>
 <article><?=$art->content?></article><br/>
-<h3>Автор статьи:</h3>
+<h4>Автор статьи:</h4>
 <p><?=$art->author?></p><br/>
-<h3>Опубликовал:</h3>
+<h4>Опубликовал:</h4>
 <p><?=$publish?></p><br/>
-<h3>Дата Публикации:</h3>
+<h4>Дата Публикации:</h4>
 <p><?=$art->date_pub?></p><br/>
