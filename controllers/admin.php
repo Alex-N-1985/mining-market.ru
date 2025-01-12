@@ -251,6 +251,40 @@
             }
             header("Location:{$rout->start}/admin/viewimages");
         }
-    }
 
+        public function viewcatsimages(){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            $cats_images = _cats_images::getImagesCatsFromDB();
+            $content = file_get_contents("views/admin/viewcatsimages.php");
+            eval("?>" . $content);
+        }
+
+        public function addcatsimages(){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            $images = _images::getImagesFromDB();
+            $cats = _categories::getCategoriesFromDBbyType("Images");
+            if (isset($_POST["image"]) && isset($_POST["cat"])){
+                $imgCat = new _cats_images(null, $_POST['image'], $_POST['cat']);
+                $res = _cats_images::addImageCatsToDB($imgCat);
+                header("Location:{$rout->start}/admin/viewcatsimages");
+            }
+            $content = file_get_contents("views/admin/addcatsimages.php");
+            eval("?>" . $content);
+        }
+
+        public function deletecatsimages($id){
+            global $rout;
+            if (!functions::isUserAdmin()){
+                header("Location:{$rout->start}/main/unauthaccess");
+            }
+            _cats_images::deleteImageCatFromDB($id);
+            header("Location:{$rout->start}/admin/viewcatsimages");
+        }
+    }
 ?>
