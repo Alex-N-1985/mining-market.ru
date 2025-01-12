@@ -452,3 +452,61 @@ form {
 .admpanel-icon {
     width: 50px;
 }
+
+.catalog {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.catalog h3 {
+    width: 100%;
+    font-size: 48px;
+    color: #333333;
+    text-align: left;
+}
+
+.catalog h3 > a {
+    text-decoration: none;
+    color: #333333;
+}
+
+.catalog__container {
+    width: 100%;
+    padding: 1%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.catalog__container-item {
+    width: 31%;
+    padding: 1%;    
+}
+
+.catalog__container-item img {
+    display: block;
+    width: 100%;
+    margin: 0;    
+}
+
+.catalog__container-item h4 {
+    width: 100%;
+    margin: 0;
+    font-size: 28px;    
+    font-weight: normal;
+    text-align: center;    
+}
+
+.catalog__container-item h4 a {
+    color: #333333;
+    text-decoration: none;
+}
+
+.catalog__container-item h4:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}

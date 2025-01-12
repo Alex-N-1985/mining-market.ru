@@ -1,11 +1,14 @@
 <?php 
 
     include_once ("models/statpages.php");
+    include_once ("models\images.php");
+    include_once ("models\categories.php");   
 
     class main {
 
         public function index(){
             global $rout;
+            $cats = _categories::getCategoriesFromDBbyType("Products");            
             $spage = _statpages::getStatPagesFromDBbyID(1);
             $content = file_get_contents("views/main/index.php");
             eval("?>".$content);

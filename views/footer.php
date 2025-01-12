@@ -3,7 +3,7 @@
                 <h3>О Компании</h3>            
                 <p><a href="">Статьи</a></p>
                 <p><a href="">Партнеры</a></p>
-                <p><a href="">Каталоги</a></p>                
+                <p><a href="http://<?=$rout->domain.$rout->start?>/categories/index">Каталоги</a></p>                
                 <p><a href="http://<?=$rout->domain.$rout->start?>/main/aboutus">О нас</a></p>
                 <p><a href="http://<?=$rout->domain.$rout->start?>/main/contactus">Контакты</a></p>
                 <p><a href="http://<?=$rout->domain.$rout->start?>/main/delivery_n_payment">Доставка и оплата</a></p>            
