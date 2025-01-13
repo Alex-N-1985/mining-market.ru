@@ -10,12 +10,12 @@
             </div>
             <div class="footer__columns">
                 <h3>Каталог</h3>
-                <p><a href="">Крепи</a></p>
-                <p><a href="">Конвейеры</a></p>
-                <p><a href="">Проходческие комбайны</a></p>
-                <p><a href="">Очистные комбайны</a></p>
-                <p><a href="">Электрооборудование</a></p>
-                <p><a href="">Электротранспорт</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Крепи</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Конвейеры</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Проходческие комбайны</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Очистные комбайны</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Электрооборудование</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Электротранспорт</a></p>
             </div>
             <div class="footer__columns">
                 <h3>Партнеры и клиенты</h3>
