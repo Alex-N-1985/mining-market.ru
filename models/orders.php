@@ -1,32 +1,37 @@
-<?php 
+<?php
 
 include_once("database.php");
 
 class _orders {
 
     public $ID;
-    public $order;
-    public $product;
-    public $quantity;
+    public $client;
+    public $order_date;
+    public $decription;
+    public $status;
 
     public static $dbConn;
 
-    public function __construct($ID, $order, $product, $quantity){
+    public function __construct($ID, $client, $order_date, $decription, $status)
+    {
         if (!isset(self::$dbConn)){
             self::$dbConn = new database();
             self::$dbConn->connectToDB();
         }
         $this->ID = $ID;
-        $this->order = $order;
-        $this->product = $product;
-        $this->quantity = $quantity;
+        $this->client = $client;
+        $this->order_date = $order_date ;
+        $this->decription = $decription;
+        $this->status = $status;
     }
 
-    public function __destruct(){
-        unset($this->ID);
-        unset($this->order);
-        unset($this->product);
-        unset($this->quantity);
+    public function __destruct()
+    {
+        unlink($this->ID);
+        unlink($this->client);
+        unlink($this->order_date);
+        unlink($this->decription);
+        unlink($this->status);
     }
 
     public static function getOrdersFromDB(){
@@ -42,9 +47,10 @@ class _orders {
             while ($row = $result->fetch()){
                 $item = new _orders(
                     $row["ID"],
-                    $row["order"],
-                    $row["product"],
-                    $row["quantity"]                      
+                    $row["client"],
+                    $row["order_date"],
+                    $row["decription"],
+                    $row["status"]
                 );
                 $arr[] = $item;
             }
@@ -67,21 +73,51 @@ class _orders {
             if ($row = $result->fetch()){
                 $item = new _orders(
                     $row["ID"],
-                    $row["order"],
-                    $row["product"],
-                    $row["quantity"]                      
+                    $row["client"],
+                    $row["order_date"],
+                    $row["decription"],
+                    $row["status"]                    
                 );
             }
         }
         return $item;
     }
 
-    public static function addOrderToDB($ord){
+    public static function getOrdersFromDBbyClient($clt){
         if (!isset(self::$dbConn)){
             self::$dbConn = new database();
             self::$dbConn->connectToDB();
         }
-        $query = "INSERT INTO orders (ID, client, order_date, decription) VALUES ({$ord->ID}, {$ord->client}, NOW(), '{$ord->decription}')";
+        $query = "SELECT * FROM orders WHERE client={$clt}";
+        $result = self::$dbConn->executeQuery($query);
+        $arr = array();
+        $item = null;
+        if ($result){
+            while ($row = $result->fetch()){
+                $item = new _orders(
+                    $row["ID"],
+                    $row["client"],
+                    $row["order_date"],
+                    $row["decription"],
+                    $row["status"]
+                );
+                $arr[] = $item;
+            }
+        }
+        if (count($arr) > 0){
+            return $arr;
+        } else {
+            return NULL;
+        }
+    }
+
+    public static function addOrdersToDB($ord){
+        if (!isset(self::$dbConn)){
+            self::$dbConn = new database();
+            self::$dbConn->connectToDB();
+        }
+        $query = "INSERT INTO orders (ID, client, order_date, decription, status) VALUES 
+        (NULL, {$ord->client}, NOW(), '{$ord->decription}', {$ord->status})";
         $result = self::$dbConn->executeQuery($query);
         if ($result)
             return true;
@@ -89,12 +125,13 @@ class _orders {
             return false;
     }
 
-    public static function updateOrderInDB($ord){
+    public static function updateOrdersInDB($ord){
         if (!isset(self::$dbConn)){
             self::$dbConn = new database();
             self::$dbConn->connectToDB();
         }
-        $query = "UPDATE orders SET client={$ord->client}, order_date='{$ord->order_date}', decription='{$ord->decription}' WHERE ID={$ord->ID}";
+        $query = "UPDATE orders SET client={$ord->client}, order_date='{$ord->order_date}',
+        decription='{$ord->decription}', status={$ord->status} WHERE ID={$ord->ID}";
         $result = self::$dbConn->executeQuery($query);
         if ($result)
             return true;
@@ -102,7 +139,7 @@ class _orders {
             return false;
     }
 
-    public static function deleteOrderInDB($id){
+    public static function deleteOrdersInDB($id){
         if (!isset(self::$dbConn)){
             self::$dbConn = new database();
             self::$dbConn->connectToDB();
