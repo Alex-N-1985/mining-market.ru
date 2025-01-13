@@ -116,6 +116,29 @@
             }
         }
 
+        public static function getClientsFromDBbyLogin($loginID){
+            if (!isset(self::$dbConn)){
+                self::$dbConn = new database();
+                self::$dbConn->connectToDB();
+            }
+            $query = "SELECT * FROM Clients WHERE login = '{$loginID}'";            
+            $result = self::$dbConn->executeQuery($query);
+            $item = null;
+            if ($result){
+                if ($row = $result->fetch()){
+                    $item = new _clients(
+                        $row["ID"],
+                        $row["name"],
+                        $row["adress"],
+                        $row["phone"],
+                        $row["client_type"],
+                        $row['login']                        
+                    );                    
+                }
+            }
+            return $item;
+        }
+
         public static function addClientToDB($clt){
             if (!isset(self::$dbConn)){
                 self::$dbConn = new database();

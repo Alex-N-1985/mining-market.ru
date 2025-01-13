@@ -11,7 +11,7 @@
                         <button><img src="/img/static/search.svg" alt=""></button>
                     </div>
                     <img src="/img/static/search.svg" alt="" id="quicksearchshow" onclick="quickSearchShow()">
-                    <a href=""><img src="/img/static/bag.svg" alt=""></a>
+                    <a href="http://<?=$rout->domain.$rout->start?>/cart/index"><img src="/img/static/bag.svg" alt=""></a>
                     <?php                         
                         if (!functions::isUserLogIn()){
                             echo "<img src='/img/static/user.svg' alt='' onclick='modalWindowOpenClose()'>";

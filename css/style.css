@@ -734,3 +734,117 @@ form {
     height: 30px;
     width: 200px;
 }
+
+.cart {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cart__calcdata {
+    width: 25%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: lightgrey;
+    border: 1px solid black;
+}
+
+.cart__calcdata > h4 {
+    width: 100%;
+    font-size: 20px;
+    font-weight:bold;
+    color: black;
+    text-align: center;
+}
+
+.cart__calcdata-column {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    color: #333333;
+}
+
+.cart__calcdata button {
+    width: 90%;
+    height: 70px;
+    background-color: red;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    margin-top: 20px;
+}
+
+.cart__calcdata p {
+    width: 100%;
+    font-size: 16px;
+    color: gray;
+    margin-top: 20px;
+    text-align: justify;
+}
+
+.cart__shoplist {
+    width: 70%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.cart__shoplist-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1%;
+}
+
+.cart__shoplist-item img {
+    display: block;
+    width: 20%;
+}
+
+.itemcontainer {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.itemcontainer h4 {
+    width: 100%;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: left;
+    color: black;
+}
+
+.itemcontainer p {
+    width: 100%;
+    font-size: 25px;
+    color: black;
+    text-align: left;
+}
+
+.itemcontainer__buttons {
+    width: 70%;
+    padding: 1%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.itemcontainer__buttons button, .itemcontainer__buttons input {
+    height: 50px;
+    width: 150px;
+    font-size: 18px;
+    color: black;
+}

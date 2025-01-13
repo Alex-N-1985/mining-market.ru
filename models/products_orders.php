@@ -76,12 +76,40 @@ class _products_orders {
         return $item;
     }
 
+    public static function getProdOrdersFromDBbyOrder($ordID){
+        if (!isset(self::$dbConn)){
+            self::$dbConn = new database();
+            self::$dbConn->connectToDB();
+        }
+        $query = "SELECT * FROM products_orders WHERE `order`={$ordID}";
+        $result = self::$dbConn->executeQuery($query);
+        $arr = array();
+        $item = null;
+        if ($result){
+            while ($row = $result->fetch()){
+                $item = new _products_orders(
+                    $row["ID"],
+                    $row["order"],
+                    $row["product"],
+                    $row["quantity"]                      
+                );
+                $arr[] = $item;
+            }
+        }
+        if (count($arr) > 0){
+            return $arr;
+        } else {
+            return NULL;
+        }
+    }
+
     public static function addProdOrdersToDB($ord){
         if (!isset(self::$dbConn)){
             self::$dbConn = new database();
             self::$dbConn->connectToDB();
         }
-        $query = "INSERT INTO products_orders (ID, order, product, quantity) VALUES (NULL, {$ord->order}, {$ord->product}, {$ord->quantity})";
+        $query = "INSERT INTO products_orders (ID, `order`, product, quantity) VALUES (NULL, {$ord->order}, {$ord->product}, {$ord->quantity})";
+        var_dump($query); echo "<br>4<br>";
         $result = self::$dbConn->executeQuery($query);
         if ($result)
             return true;
@@ -94,7 +122,7 @@ class _products_orders {
             self::$dbConn = new database();
             self::$dbConn->connectToDB();
         }
-        $query = "UPDATE products_orders SET order={$ord->order}, product={$ord->product}, quantity={$ord->quantity} WHERE ID={$ord->ID}";
+        $query = "UPDATE products_orders SET `order`={$ord->order}, product={$ord->product}, quantity={$ord->quantity} WHERE ID={$ord->ID}";
         $result = self::$dbConn->executeQuery($query);
         if ($result)
             return true;

@@ -27,11 +27,11 @@ class _orders {
 
     public function __destruct()
     {
-        unlink($this->ID);
-        unlink($this->client);
-        unlink($this->order_date);
-        unlink($this->decription);
-        unlink($this->status);
+        unset($this->ID);
+        unset($this->client);
+        unset($this->order_date);
+        unset($this->decription);
+        unset($this->status);
     }
 
     public static function getOrdersFromDB(){

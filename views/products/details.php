@@ -9,8 +9,10 @@
         <h3><?= $prod->name ?></h3>
         <p class="gooddata__container-price"><?= $prod->price ?> p.</p>
         <div class="button__container-buttons">
-            <p>Колличество: <input type="number" min="0" max="100"></p>
-            <button >В корзину</button>
+            <form method="post" action="http://<?=$rout->domain.$rout->start?>/products/details/<?=$prod->ID?>">
+            <p>Колличество: <input type="number" name="quantity" min="0" max="100" value="1"></p>
+            <button type="submit">В корзину</button>
+            </form>
         </div>
     </div>
 </section>
