@@ -4,6 +4,7 @@
     <div class="goodslist__sidepanel">
         <h4>Категории</h4>
         <ul>
+            <li><a href='http://<?=$rout->domain.$rout->start?>/products/index'>Все</a></li>
             <?php
                 if ($cats != null){
                     foreach ($cats as $cat){
@@ -23,6 +24,8 @@
             <p><?=$item->price?> p</p>
         </div>
         <?php }
+            } else {
+                echo "<p>Товары в данной категории на текущий момент отсутствуют.</p>";
             }?>
     </div>
 </section>

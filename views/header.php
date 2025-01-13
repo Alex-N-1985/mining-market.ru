@@ -27,12 +27,12 @@
                 </div>
             </div>
             <div class="header__cats">
-                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Крепи</a></p>
-                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Конвейеры</a></p>
-                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Проходческие комбайны</a></p>
-                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Очистные комбайны</a></p>
-                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Электрооборудование</a></p>
-                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Электротранспорт</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/category/1">Крепи</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/category/2">Конвейеры</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/category/3">Проходческие комбайны</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/category/4">Очистные комбайны</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/category/5">Электрооборудование</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/category/6">Электротранспорт</a></p>
             </div>
         </header>
         <div id="openModal" class="modal-container">

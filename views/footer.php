@@ -9,13 +9,13 @@
                 <p><a href="http://<?=$rout->domain.$rout->start?>/main/delivery_n_payment">Доставка и оплата</a></p>            
             </div>
             <div class="footer__columns">
-                <h3>Каталог</h3>
-                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Крепи</a></p>
-                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Конвейеры</a></p>
-                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Проходческие комбайны</a></p>
-                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Очистные комбайны</a></p>
-                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Электрооборудование</a></p>
-                <p><a href="http://<?=$rout->domain.$rout->start?>/products/index">Электротранспорт</a></p>
+                <h3><a href="http://<?=$rout->domain.$rout->start?>/products/index">Каталог</a></h3>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/category/1">Крепи</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/category/2">Конвейеры</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/category/3">Проходческие комбайны</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/category/4">Очистные комбайны</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/category/5">Электрооборудование</a></p>
+                <p><a href="http://<?=$rout->domain.$rout->start?>/products/category/6">Электротранспорт</a></p>
             </div>
             <div class="footer__columns">
                 <h3>Партнеры и клиенты</h3>

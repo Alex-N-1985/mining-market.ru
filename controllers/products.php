@@ -21,6 +21,14 @@
             eval("?>".$content);
         }
 
+        public function category($id){
+            global $rout;
+            $cats = _categories::getCategoriesFromDBbyType("Products");
+            $prods = _products::getProductsFromDBbyCategory($id);            
+            $content = file_get_contents("views/products/index.php");
+            eval("?>".$content);
+        }
+
     }
 
 ?>

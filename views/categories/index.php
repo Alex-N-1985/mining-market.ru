@@ -7,7 +7,7 @@
                         ?>
                     <div class="catalog__container-item">
                         <img src="/img/<?= $img->uri.".".$img->extension ?>" alt="">
-                        <h4><a href=""><?= $item->name?></a></h4>
+                        <h4><a href="http://<?=$rout->domain.$rout->start?>/products/category/<?=$item->ID?>"><?= $item->name?></a></h4>
                     </div>
                     <?php } ?>
                 </div>
